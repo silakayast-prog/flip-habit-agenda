@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* 3D Realistic Page Turn Animations (Next Day / Forward) */
+@keyframes pageTurnForwardOut {
+  0% {
+    transform: perspective(1400px) rotateY(0deg);
+    transform-origin: left center;
+    opacity: 1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: perspective(1400px) rotateY(-85deg);
+    transform-origin: left center;
+    opacity: 0.05;
+    box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes pageTurnForwardIn {
+  0% {
+    transform: perspective(1400px) rotateY(85deg);
+    transform-origin: left center;
+    opacity: 0.05;
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    transform: perspective(1400px) rotateY(0deg);
+    transform-origin: left center;
+    opacity: 1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 3D Realistic Page Turn Animations (Previous Day / Backward) */
+@keyframes pageTurnBackwardOut {
+  0% {
+    transform: perspective(1400px) rotateY(0deg);
+    transform-origin: right center;
+    opacity: 1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: perspective(1400px) rotateY(85deg);
+    transform-origin: right center;
+    opacity: 0.05;
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes pageTurnBackwardIn {
+  0% {
+    transform: perspective(1400px) rotateY(-85deg);
+    transform-origin: right center;
+    opacity: 0.05;
+    box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    transform: perspective(1400px) rotateY(0deg);
+    transform-origin: right center;
+    opacity: 1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.page-turn-forward-out {
+  animation: pageTurnForwardOut 0.26s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+}
+.page-turn-forward-in {
+  animation: pageTurnForwardIn 0.28s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+.page-turn-backward-out {
+  animation: pageTurnBackwardOut 0.26s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+}
+.page-turn-backward-in {
+  animation: pageTurnBackwardIn 0.28s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+/* Agenda Paper Patterns */
+.lined-paper-day {
+  background-color: #FAF8F2;
+  background-image: linear-gradient(rgba(224, 214, 194, 0.45) 1px, transparent 1px);
+  background-size: 100% 32px;
+  line-height: 32px;
+}
+
+.lined-paper-night {
+  background-color: #121826;
+  background-image: linear-gradient(rgba(65, 82, 115, 0.45) 1px, transparent 1px);
+  background-size: 100% 32px;
+  line-height: 32px;
+}
+
+.dotted-paper-day {
+  background-color: #FFFDF9;
+  background-image: radial-gradient(#d6cdbe 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+.dotted-paper-night {
+  background-color: #0F1422;
+  background-image: radial-gradient(#2d3b55 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
